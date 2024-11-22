@@ -1,0 +1,103 @@
+exercice 1:
+
+1. ( réalisé sur le terminal)
+la premiere question permet de configurer son nom et son mail dans le git à
+l'aide de :git config --global user.name "Your Name" et 
+           git config --global user.email "youremail@yourdomain.com"
+
+2.  explication :
+  
+    main.c
+  le fichier main.c initialise une image, la remplie  avec les motifs de couleur, sauvegarde l'image puis libère la mémoire allouée.Il remplit l'image avec des valeurs de couleur basées sur les coordonnées des
+pixels et génère une diagonale à travers l'image. Ensuite, il écrit l'image au format PPM dans
+un fichier appelé "test.ppm".
+    
+   mandel.c
+ Ce fichier est un code en langage C qui génère une image fractale de Mandelbrot au format PPM . Il itère
+sur chaque pixel de l'image, effectue des calculs pour déterminer la couleur du pixel, puis enregistre l'image générée dans un fichier nommé "m.ppm"..
+ En résumé, ce code crée une représentation visuelle de l'ensemble de Mandelbrot en utilisant des
+calculs  pour déterminer les couleurs des pixels de l'image PPM.
+     
+  ppm.h
+   Ce fichier ppm.h définit les structures et les fonctions nécessaires pour créer, modifier, enregistrer des images au format PPM, et garantit que la mémoire allouée pour l'image est correctement libérée.
+   
+ ppm.c:
+ Ce code en C définit des fonctions pour initialiser, libérer et enregistrer une image PPM
+• La fonction ppm_image_init initialise une image PPM avec une largeur et une hauteur spécifiées en allouant de la mémoire pour les pixels de l'image.
+• La fonction ppm_image_release libère la mémoire allouée pour les pixels de l'image PPM.
+• La fonction ppm_image_dump sauvegarde l'image PPM dans un fichier en précisant les
+dimensions et les pixels de l'image en format binaire.
+Ces fonctions permettent de travailler avec des images au format PPM en C.
+
+   Makefile
+Ce Makefile fournit des directives pour compiler un programme C qui utilise les
+fonctions définies dans les fichiers "main.c", "ppm.c" et "mandel.c" afin de générer des exécutables
+"test" et "mandel".
+
+• La cible par défaut 'all' compile les cibles 'test' et 'mandel'.
+• La cible 'libppm.so' compile le fichier "ppm.c" en une bibliothèque partagée libppm.so.
+• La cible 'test' compile le fichier "main.c" en un exécutable "test" en liant avec libppm.so.
+• La cible 'mandel' compile le fichier "mandel.c" en un exécutable "mandel" en liant avec
+libppm.so.
+• La cible 'clean' supprime les exécutables générés et les fichiers .so.
+En résumé, ce Makefile permet de compiler les fichiers source et de générer les exécutables "test" et
+"mandel" en utilisant les règles spécifiées.
+
+
+
+3. Documentation de ppm.h :
+struct ppm_pixel; // structure qui définit un pixel à l'aide des int r,g et b.
+
+static inline void ppm_setpixel; // initialise un pixel de couleurs r, g et b.
+
+struct ppm_image; // structure qui définit une image  de tableau de width height pixels.
+
+int ppm_image_init; // Initialise une image  en allouant la mémoire nécessaire pour le tableau de pixels.
+
+int ppm_image_release; // affiche l'image et Libère la mémoire allouée pour le tableau de pixels
+
+static inline void ppm_image_setpixel; // Définit les valeurs des composantes rouge, verte et bleue d'un pixel spécifique dans une image.
+
+int ppm_image_dump; // sauvegarder une image en créant un fichier .
+
+
+exercice 2:
+1. exécuté sur le terminal :
+git add mandel.c --> git commit -m "modification_du_fichier"
+git add Makefile --> git commit -m "Makefile_modifie"
+
+
+2. explication des étapes du code:
+a)Lignes 1 à 5 : Inclusion des bibliothèques
+b)Lignes 7 à 11 : Définition des constantes dans le programme (
+c)Lignes 13 à 23 : Fonctions cx et cy 
+d)Lignes 25-30 : Début de la fonction main et création d'une image PPM
+e)Lignes 32-34 : Déclaration des variables et calcul du facteur de couleur
+f)Lignes 36-55 : Boucles imbriquées pour parcourir chaque pixel
+g)Lignes 57-58 : Calcul de la couleur et définition du pixel
+h)Lignes 60-63 : Enregistrement de l'image et libération de la mémoire
+
+ 
+Exercice3:
+
+1. On peut faire un git merge color_support étant sur la branche master.
+
+2.La fusion automatique échoue a cause des conflits. il faut régler les conflits
+manuellement.
+
+3.4. •Valider tout d'abord les modifications : les conserver  avant de
+changer de branche  avec les commande : git add 
+                                        git commit -m "Enregistrement_des_modifications_locales"
+
+    •la branche color_support n'apparaît pas dans la liste, pour la 
+récupérer du dépôt distant:  git fetch origin.
+
+    •Créer la branche locale à partir de la branche distante :git checkout -b color_support origin/color_support
+    
+    • ramener cette branche au-dessus de la master: git merge color_support.
+    
+  Exercice 4:
+  1. depot utilisé : Github.
+  
+  2. 2-Je fais un git status pour voir sur quel branche je suis après je fais un git add * puis un
+git commit -m ’’message ’’ et puis un git push pour finir.
